@@ -10,9 +10,11 @@ A small RAG-style assistant for publicly available DarGlobal project information
 
 The app runs without a key, but AI responses are disabled until `OPENROUTER_API_KEY` is set. Set `OPENROUTER_MODEL` to `openrouter/free` to use OpenRouter's currently available free model router.
 
-## Deploy with Render
+## Deploy with Vercel
 
-This repository includes `render.yaml` for a Docker web service. Push the project to a Git repository, create a Render Blueprint from that repository, and add `OPENROUTER_API_KEY` as a secret environment variable in the Render service settings. Render will provide the public HTTPS URL after the service builds and starts.
+The app includes Vercel Python functions under `api/`, so it can deploy without a Render workspace or Docker service slot. In Vercel, import `Rakshanayak24/chatbot`, keep the project root at `/`, add `OPENROUTER_API_KEY` as a Production environment variable, and deploy. Vercel will provide the public HTTPS URL. The Hobby plan is for personal projects and has function duration and usage limits.
+
+After importing the repository, set `OPENROUTER_MODEL` to `openrouter/free` as a regular environment variable if it is not already present. The Docker deployment remains available through `docker compose up --build` for self-hosting.
 
 ## Data and limitations
 
